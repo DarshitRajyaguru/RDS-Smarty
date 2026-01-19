@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rds-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0066ff" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#00b48a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff7a59" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#rds-gradient)"/>
+  <g fill="#ffffff" fill-opacity="0.25">
+    <circle cx="220" cy="160" r="90"/>
+    <circle cx="1380" cy="140" r="110"/>
+    <circle cx="1320" cy="740" r="130"/>
+    <circle cx="320" cy="720" r="140"/>
+  </g>
+  <g stroke="#ffffff" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <path d="M200 420 C360 300, 520 540, 680 420"/>
+    <path d="M920 260 C1080 140, 1240 380, 1400 260"/>
+    <path d="M320 520 C480 400, 640 640, 800 520"/>
+  </g>
+</svg>

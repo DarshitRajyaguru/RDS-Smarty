@@ -1,0 +1,673 @@
+/*
+Theme Name: RDS Smarty
+Theme URI: https://github.com/DarshitRajyaguru/BlueBoxed-Theme
+Author: Darshit Rajyaguru
+Author URI: https://profiles.wordpress.org/darshitrajyaguru97/
+Description: A fast, flexible, Astra-inspired theme with a bold tech and commerce-ready aesthetic. Built for WordPress 6.4+ and PHP 7.4.
+Version: 1.0.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Copyright: (c) 2026 Darshit Rajyaguru
+Text Domain: rds-smarty
+Tags: custom-logo, custom-menu, featured-images, theme-options, translation-ready, blog, e-commerce, portfolio, one-column, two-columns, three-columns, right-sidebar, wide-blocks, full-width-template, grid-layout
+*/
+
+:root {
+  --rds-bg: #e6ebf4;
+  --rds-surface: #ffffff;
+  --rds-ink: #0b1021;
+  --rds-muted: #4c5a78;
+  --rds-accent: #0047ff;
+  --rds-accent-2: #00a07c;
+  --rds-warm: #ff6a3d;
+  --rds-border: #d6dde9;
+  --rds-shadow-1: 0 10px 30px rgba(11, 16, 33, 0.12);
+  --rds-shadow-2: 0 24px 70px rgba(11, 16, 33, 0.2);
+  --rds-radius: 16px;
+  --rds-max: 1200px;
+  --rds-gutter: 24px;
+  --rds-font: "Manrope", "Segoe UI", sans-serif;
+  --rds-display: "Sora", "Trebuchet MS", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--rds-font);
+  color: var(--rds-ink);
+  background: radial-gradient(circle at 10% 10%, #dfe8ff 0%, transparent 40%),
+    radial-gradient(circle at 90% 0%, #d5f6ee 0%, transparent 45%),
+    var(--rds-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rds-container {
+  max-width: var(--rds-max);
+  margin: 0 auto;
+  padding: 0 var(--rds-gutter);
+}
+
+.rds-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--rds-accent);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 999;
+}
+
+.rds-skip-link:focus {
+  left: 16px;
+}
+
+.rds-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 16, 33, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(11, 16, 33, 0.25);
+}
+
+.rds-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+}
+
+.rds-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--rds-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rds-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.rds-nav a {
+  color: #fff;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.rds-nav a:hover {
+  color: transparent;
+  background-image: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.rds-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.rds-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.rds-content a:not(.rds-btn),
+.rds-footer a,
+.rds-contact-info a {
+  position: relative;
+  color: var(--rds-accent);
+  text-decoration: none;
+}
+
+.rds-content a:not(.rds-btn)::after,
+.rds-footer a::after,
+.rds-contact-info a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.rds-content a:not(.rds-btn):hover::after,
+.rds-footer a:hover::after,
+.rds-contact-info a:hover::after {
+  transform: scaleX(1);
+}
+
+.rds-social a,
+.rds-social a::after,
+.rds-social a:hover::after {
+  background: none;
+  color: inherit;
+  transform: none;
+}
+
+.rds-content a:not(.rds-btn):hover,
+.rds-footer a:hover,
+.rds-contact-info a:hover {
+  color: transparent;
+  background-image: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.rds-hero {
+  padding: 100px 0 110px;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 180, 138, 0.08)),
+    url("assets/images/hero-pattern.svg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rds-hero-grid {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.rds-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 122, 89, 0.15), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(0, 102, 255, 0.18), transparent 60%);
+  pointer-events: none;
+}
+
+.rds-hero .rds-container {
+  position: relative;
+  z-index: 1;
+}
+
+.rds-hero-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  line-height: 0;
+}
+
+.rds-hero-divider img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.rds-hero h1 {
+  font-family: var(--rds-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.rds-hero p {
+  color: var(--rds-muted);
+  font-size: 1.05rem;
+}
+
+.rds-hero-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.rds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rds-btn-primary {
+  background: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  color: #fff;
+  box-shadow: var(--rds-shadow-1);
+}
+
+.rds-btn-outline {
+  border-color: var(--rds-border);
+  background: #fff;
+  color: var(--rds-ink);
+}
+
+.rds-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rds-shadow-2);
+}
+
+.rds-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rds-btn:hover::after {
+  opacity: 1;
+}
+
+.is-style-rds-gradient .wp-block-button__link,
+.wp-block-button.is-style-rds-gradient .wp-block-button__link {
+  background: linear-gradient(120deg, var(--rds-accent), var(--rds-accent-2));
+  border-radius: 999px;
+  color: #fff;
+  border: none;
+  box-shadow: var(--rds-shadow-1);
+}
+
+.rds-card {
+  background: var(--rds-surface);
+  border: 1px solid var(--rds-border);
+  border-radius: var(--rds-radius);
+  box-shadow: var(--rds-shadow-1);
+  padding: 28px;
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.rds-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--rds-radius) + 2px);
+  background: linear-gradient(120deg, rgba(0, 102, 255, 0.4), rgba(0, 180, 138, 0.4), rgba(255, 122, 89, 0.4));
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  z-index: -1;
+}
+
+.rds-card:hover {
+  transform: translate3d(0, -6px, 0);
+  border-color: rgba(0, 102, 255, 0.3);
+  box-shadow: 0 16px 40px rgba(13, 18, 36, 0.16);
+}
+
+.rds-card:hover::before {
+  opacity: 1;
+}
+
+.rds-highlight {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 50px 0;
+}
+
+.rds-section {
+  padding: 60px 0;
+}
+
+.rds-section-title {
+  font-family: var(--rds-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0 0 12px;
+}
+
+.rds-section p {
+  color: var(--rds-muted);
+}
+
+.rds-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.rds-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.12);
+  color: var(--rds-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.rds-cta {
+  background: linear-gradient(120deg, #0d1224, #1b2a52);
+  color: #fff;
+  border-radius: 28px;
+  padding: 60px 40px;
+  box-shadow: var(--rds-shadow-2);
+}
+
+.rds-cta p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rds-footer {
+  padding: 30px 0 40px;
+  color: var(--rds-muted);
+  box-shadow: 0 -16px 40px rgba(11, 16, 33, 0.08);
+}
+
+.rds-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.rds-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.rds-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rds-btn,
+  .rds-reveal {
+    transition: none;
+  }
+}
+
+.rds-content {
+  padding: 40px 0 70px;
+}
+
+.rds-content h2,
+.rds-content h3,
+.rds-content h4 {
+  font-family: var(--rds-display);
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
+}
+
+.screen-reader-text:focus {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  padding: 12px 16px;
+  position: static;
+  width: auto;
+  background: #fff;
+  color: var(--rds-ink);
+  border-radius: 8px;
+  box-shadow: var(--rds-shadow-1);
+}
+
+.alignleft {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 20px 20px;
+}
+
+.aligncenter {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.wp-caption {
+  max-width: 100%;
+}
+
+.wp-caption-text {
+  color: var(--rds-muted);
+  font-size: 0.9rem;
+}
+
+.gallery-caption {
+  color: var(--rds-muted);
+}
+
+.bypostauthor {
+  position: relative;
+}
+
+.sticky {
+  border: 2px solid rgba(0, 71, 255, 0.25);
+}
+
+.rds-faq {
+  display: grid;
+  gap: 16px;
+}
+
+.rds-faq details {
+  background: #fff;
+  border-radius: var(--rds-radius);
+  border: 1px solid var(--rds-border);
+  padding: 18px 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rds-faq details[open] {
+  border-color: rgba(0, 102, 255, 0.4);
+  box-shadow: var(--rds-shadow-1);
+}
+
+.rds-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.rds-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.rds-contact-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.rds-contact-info {
+  display: grid;
+  gap: 16px;
+}
+
+.rds-contact-info a {
+  color: var(--rds-accent);
+}
+
+.rds-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.rds-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--rds-border);
+  box-shadow: var(--rds-shadow-1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.rds-social a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 71, 255, 0.4);
+  box-shadow: var(--rds-shadow-2);
+}
+
+.rds-social svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--rds-ink);
+}
+
+.rds-form {
+  display: grid;
+  gap: 18px;
+}
+
+.rds-form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rds-form-field {
+  flex: 1 1 220px;
+  display: grid;
+  gap: 6px;
+}
+
+.rds-form input,
+.rds-form textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rds-border);
+  font-family: var(--rds-font);
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rds-form input:focus,
+.rds-form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 102, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.rds-entry-thumb {
+  margin-bottom: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.page-links {
+  margin-top: 20px;
+}
+
+.rds-tags {
+  margin-top: 20px;
+  color: var(--rds-muted);
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.comment-list li {
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--rds-border);
+  background: #fff;
+}
+
+.comment-content {
+  margin-top: 10px;
+}
+
+@media (min-width: 980px) {
+  .rds-contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.rds-sidebar {
+  padding: 32px;
+  background: #fff;
+  border-radius: var(--rds-radius);
+  border: 1px solid var(--rds-border);
+}
+
+.rds-layout {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 960px) {
+  .rds-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
